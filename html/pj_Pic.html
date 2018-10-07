@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8" />
+	<title></title>
+	</head>
+
+	<script type="text/javascript">
+	window.onload = function () {
+// 查找元素
+var oNext = document.getElementById('next');
+	var oPrve = document.getElementById('prve');
+ var oP1 = document.getElementById('p1');
+	var oP2 = document.getElementById('p2');
+	var oImg = document.getElementById('Img');
+ /* 此处声明变量并赋初值，声明的意思是在此作用域范围内，在内存中开辟一块空间给你定义的变量，
+然后赋值——把你给的值放在这个变量空间中。如果不先声明，则无法存放数据。*/
+var num=0;
+// 添加图片和信息
+var arrUrl = ['./img/01.jpg','./img/02.jpg','./img/03.jpg','./img/04.jpg']
+	var arrP2 = ['图片1','图片2','图片3','图片4']
+// 初使化内容
+function funtab() 
+{
+ 	oP1.innerHTML = num+1+'/'+arrUrl.length;
+	oP2.innerHTML = arrP2[num];
+	oImg.src = arrUrl[num];
+ }
+ funtab();//函数必须先调用再执行
+
+// 上一张
+oPrve.onclick = function () 
+{
+	num --;
+	if(num==-1)
+	{
+		num=arrUrl.length-1; 
+	}
+	funtab();
+};
+// 下一张
+oNext.onclick = function () 
+{
+	num ++;
+	if(num==arrUrl.length)
+	{
+		num=0; 
+	}
+	funtab();
+};
+	};
+	</script>
+	<body>
+	<div id="content">
+		<a id="prve" href="#">
+			<
+		</a>
+		&nbsp;
+		<a id="next" href="#">
+			>	
+		</a>
+
+		<p id="p1">图片个数加载中</p>
+		<p id="p2">图片信息加载中</p>
+		<img id="Img" src=""/>
+	</div>
+	</body>
+</html>
